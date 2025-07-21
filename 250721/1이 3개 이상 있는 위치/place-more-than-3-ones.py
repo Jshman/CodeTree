@@ -12,5 +12,6 @@ for i in range(n):
             ny, nx = i + dy, j + dx
             if 0<=ny and ny<n and 0<=nx and nx<n and grid[ny][nx]:
                 cnt += 1
-        if cnt >= 3: ans += 1
-
+        if cnt >= 3:
+            ans += 1
+print(ans)
