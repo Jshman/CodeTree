@@ -19,4 +19,4 @@ for _ in range(N):
     else:
         continue
     break
-print(times)
+print(times if y == 0 and x == 0 else -1)
