@@ -8,28 +8,29 @@ def sol(grid, marbles):
     leng = len(grid)
     tmp = [[0] * leng for _ in range(leng)]
 
-    for i, j in marbles:
-        tmp[i][j] += 1
-        M, y, x = -1, -1, -1
+    for y, x in marbles:
+        M, to_y, to_x = -1, -1, -1
+        tmp[y][x] += 1
 
         for d in range(4):
-            ny, nx = i+dy[d], j+dx[d]
+            ny, nx = y+dy[d], x+dx[d]
             if not in_range(ny, nx, leng):
                 continue
-            if grid[i][j] < grid[ny][nx] and M < grid[ny][nx]:
-                M, y, x = grid[ny][nx], ny, nx
+            
+            if grid[ny][nx] > M:
+                M = grid[ny][nx]
+                to_y, to_x = ny, nx
+        
         if M > -1:
-            tmp[y][x] += 1
-            tmp[i][j] -= 1
+            tmp[to_y][to_x] += 1
+            tmp[y][x] -= 1
 
-    ret_marbles = []
+    ret = []
     for i in range(leng):
         for j in range(leng):
-            if tmp[i][j] > 1:
-                tmp[i][j] = 0
-            elif tmp[i][j] == 1:
-                ret_marbles.append((i, j))
-    return ret_marbles
+            if tmp[i][j] == 1:
+                ret.append((i, j))
+    return ret
 
 
 if __name__ == '__main__':
