@@ -9,8 +9,8 @@ def LEFT(grid):
     leng = len(grid)
     for i in range(leng):
         row = grid[i]
-        for j in range(leng-1):
-            for k in range(j+1, leng-1):
+        for j in range(leng):
+            for k in range(j+1, leng):
                 if row[j] == row[k]:
                     row[j] *= 2
                     row[k] = 0
@@ -30,7 +30,7 @@ def RIGHT(grid):
     leng = len(grid)
     for i in range(leng):
         row = grid[i]
-        for j in range(leng-1, 0, -1):
+        for j in range(leng-1, -1, -1):
             for k in range(j-1, -1, -1):
                 if row[j] == row[k]:
                     row[j] *= 2
