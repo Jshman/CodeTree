@@ -9,7 +9,6 @@ def sol(now=0, board=board, nums=nums, depth=0, pieces=k):
     if depth == len(nums):
         score = board[-1]
         return score
-    # print(board)
     ans = 0
     # nums에 대해 반복하는 것임
     for i in range(now, len(nums)):
@@ -20,7 +19,7 @@ def sol(now=0, board=board, nums=nums, depth=0, pieces=k):
             board[j] -= 1
             board[min(j + nums[i], len(board)-1)] += 1
 
-            tmp = sol(now+1, board, nums, depth+1)
+            tmp = sol(i+1, board, nums, depth+1)
 
             board[j] += 1
             board[min(j + nums[i], len(board)-1)] -= 1
