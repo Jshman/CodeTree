@@ -5,6 +5,7 @@ def in_range(y, x, h, w):
 
 n, m = map(int, input().split())
 a = [list(map(int, input().split())) for _ in range(n)]
+visited = [[False] * m for _ in range(n)]
 
 dyxs = [(0, 1), (1, 0), (-1, 0), (0, -1)]
 q = deque()
@@ -16,6 +17,7 @@ while q:
         break
     for dy, dx in dyxs:
         ny, nx = y+dy, x+dx
-        if in_range(ny, nx, n, m) and a[ny][nx]==1:
+        if in_range(ny, nx, n, m) and a[ny][nx]==1 and not visited[ny][nx]:
+            visited[ny][nx] = True
             q.append((ny, nx))
 print(1 if a[n-1][m-1] == -1 else 0)
