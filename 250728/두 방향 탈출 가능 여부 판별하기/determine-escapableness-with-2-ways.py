@@ -9,6 +9,8 @@ stk = [(0, 0)]
 while stk:
     y, x = stk.pop()
     grid[y][x] = -1
+    if y == n-1 and x == m-1:
+        break
     for dy, dx in dyxs:
         ny, nx = y+dy, x+dx
         if in_range(ny, nx, n, m) and grid[ny][nx]:
