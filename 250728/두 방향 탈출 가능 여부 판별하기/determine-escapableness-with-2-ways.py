@@ -13,7 +13,5 @@ while stk:
         ny, nx = y+dy, x+dx
         if in_range(ny, nx, n, m) and grid[ny][nx]:
             stk.append((ny, nx))
+            
 print(1 if grid[n-1][m-1] == -1 else 0)
-
-
-
