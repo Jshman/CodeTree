@@ -12,7 +12,7 @@ q.append((0, 0))
 while q:
     y, x = q.popleft()
     a[y][x] = -1
-    if y == n and x == m:
+    if y == n-1 and x == m-1:
         break
     for dy, dx in dyxs:
         ny, nx = y+dy, x+dx
