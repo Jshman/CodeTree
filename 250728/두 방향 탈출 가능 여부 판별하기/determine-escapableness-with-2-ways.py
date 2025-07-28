@@ -3,6 +3,7 @@ def in_range(y, x, h, w):
 
 n, m = map(int, input().split())
 grid = [list(map(int, input().split())) for _ in range(n)]
+visited = [[False] * m for _ in range(n)]
 
 dyxs = [(0, 1), (1, 0)]
 stk = [(0, 0)]
@@ -13,7 +14,7 @@ while stk:
         break
     for dy, dx in dyxs:
         ny, nx = y+dy, x+dx
-        if in_range(ny, nx, n, m) and grid[ny][nx]:
+        if in_range(ny, nx, n, m) and grid[ny][nx] and not visited[ny][nx]:
             stk.append((ny, nx))
-            
+            visited[ny][nx] = True
 print(1 if grid[n-1][m-1] == -1 else 0)
