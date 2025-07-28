@@ -11,7 +11,7 @@ dyxs = [(0, 1), (1, 0), (-1, 0), (0, -1)]
 
 q = deque()
 q.append((0, 0, 0))
-ans = float('inf')
+ans = -1
 while q:
     y, x, times = q.popleft()
     if y == n-1 and x == m-1:
