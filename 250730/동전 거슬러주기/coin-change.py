@@ -11,4 +11,4 @@ for i in range(1, M+1):
         if i >= c:
             dp[i] = min(dp[i], dp[i - c] + 1)
 
-print(dp[M])
+print(dp[M] if dp[M] > 0 else -1)
