@@ -5,7 +5,7 @@ lines.sort(key = lambda x:x[1])
 cnt = 0
 selected_end = -1
 for x1, x2 in lines:
-    if selected_end <= x1:
+    if selected_end < x1:
         selected_end = x2
         cnt += 1
 print(cnt)
