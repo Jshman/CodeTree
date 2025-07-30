@@ -1,6 +1,6 @@
 n = int(input())
 lines = [list(map(int, input().split())) for _ in range(n)]
-lines.sort()
+lines.sort(key = lambda x:x[1])
 
 cnt = 0
 selected_end = -1
