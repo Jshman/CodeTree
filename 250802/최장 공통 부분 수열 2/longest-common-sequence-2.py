@@ -14,13 +14,19 @@ for i in range(1, len(A)+1):
 
         if a == b:
             if i-1 > 0:
-                for k in range(1, j+1):
-                    if len(dp[j][i]) <= len(dp[k][i-1]) + 1:
+                for k in range(1, j):
+                    if len(dp[j][i]) < len(dp[k][i-1]) + 1:
                         dp[j][i] = dp[k][i-1] + a
             else:
                 dp[j][i] = a
+        if j-1>0 and len(dp[j][i]) <= len(dp[j-1][i]):
+            dp[j][i] = dp[j-1][i]
+        if i-1>0 and len(dp[j][i]) <= len(dp[j][i-1]):
+            dp[j][i] = dp[j][i-1]
+
 ans = ''
 for arr in dp:
+    # print(arr)
     for elem in arr:
         if len(ans) < len(elem):
             ans = elem
