@@ -14,6 +14,8 @@ for i in range(1, len(A)+1):
 
         if a == b:
             if i-1 > 0:
+                if j == 1:
+                    dp[j][i] = a
                 for k in range(1, j):
                     if len(dp[j][i]) < len(dp[k][i-1]) + 1:
                         dp[j][i] = dp[k][i-1] + a
